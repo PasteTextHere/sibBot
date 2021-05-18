@@ -12,6 +12,7 @@ import java.util.*
 class ExcelService {
 
     fun editExcelFile(dataForExcel: DataForExcel) {
+        if (!File("ExcelFile.xls").isFile) createExcel()
         val excelFile = HSSFWorkbook(FileInputStream("ExcelFile.xls"))
         val excelSheet = excelFile.getSheet("Sheet1")
         val lastRow = excelSheet.lastRowNum
